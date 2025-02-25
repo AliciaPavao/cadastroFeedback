@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/pag1.css')}}">
+    <title>Página Principal</title>
+</head>
+
+<body>
+    <main class="corpo">
+        <header class="cabecalho">
+            <h1>FEEDBACK</h1>
+        </header>
+
+        <form action="/post/mensagem" method="POST" class="formulario01">
+            <label class="txt-user txt">
+                Usuario
+                <input type="text" name="usuario">
+            </label>
+
+            <label class="txt-coment txt">
+                Comentarios
+                <input type="text" name="mensagem">
+            </label>
+
+            <button>ENVIAR</button>
+        </form>
+    </main>
+</body>
+</html>
