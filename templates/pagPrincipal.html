@@ -30,10 +30,13 @@
 
             <div class="comentarios">
                 <h2>Comentários Enviados</h2>
-                
-                <div id="comentarios-list">
 
+                {%for mensagem in mensagens}
+                <div class="comentarios-list">
+                    <strong>{{mensagem.usuario}} ({{mensagem.data_hora}})</strong>
+                    <p>{{mensagem.mensagem}}</p>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </main>

@@ -111,7 +111,7 @@ button:hover {
     font-size: 14px;
 }
 
-#comentarios-list {
+.comentarios-list {
     display: flex;
     flex-direction: column;
     gap: 15px;

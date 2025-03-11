@@ -8,7 +8,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def pagina_principal():
-    return render_template("pagPrincipal.html")
+    # Recuperar as mensagens
+    mensagens = Mensagem.recuperar_mensagens()
+    
+    # Enviar as mensagens para o template
+    return render_template("pagPrincipal.html", mensagens = mensagens)
 
 @app.route("/post/mensagem", methods=["POST"])
 def cadastrarComentarios():
