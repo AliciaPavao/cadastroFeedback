@@ -13,19 +13,29 @@
             <h1>FEEDBACK</h1>
         </header>
 
-        <form action="/post/mensagem" method="POST" class="formulario01">
-            <label class="txt-user txt">
-                Usuario
-                <input type="text" name="usuario">
-            </label>
+        <div class="formulario-container">
+            <form action="/post/mensagem" method="POST" class="formulario01">
+                <label class="txt-user txt">
+                    Usuario
+                    <input type="text" name="usuario" id="usuario">
+                </label>
 
-            <label class="txt-coment txt">
-                Comentarios
-                <input type="text" name="mensagem">
-            </label>
+                <label class="txt-coment txt">
+                    Comentarios
+                    <input type="text" name="mensagem" id="mensagem">
+                </label>
 
-            <button>ENVIAR</button>
-        </form>
+                <button type="submit">ENVIAR</button>
+            </form>
+
+            <div class="comentarios">
+                <h2>Comentários Enviados</h2>
+                
+                <div id="comentarios-list">
+
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

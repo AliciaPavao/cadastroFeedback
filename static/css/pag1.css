@@ -29,10 +29,16 @@ body {
 
 .cabecalho h1 {
     font-size: 36px;
-    color:deeppink ;
+    color: deeppink;
 }
 
 /* Estilo do formulário */
+.formulario-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .formulario01 {
     background-color: white;
     padding: 20px;
@@ -63,7 +69,7 @@ input[type="text"] {
 
 /* Estilo para o botão */
 button {
-    background-color: deeppink ;
+    background-color: deeppink;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -74,5 +80,39 @@ button {
 }
 
 button:hover {
-    background-color: rgb(249, 145, 200) ;
+    background-color: rgb(249, 145, 200);
+}
+
+/* Estilo do quadrado de comentários */
+.comentarios {
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    color: deeppink;
+}
+
+.comentario {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.comentario p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+#comentarios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
