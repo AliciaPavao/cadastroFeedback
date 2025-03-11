@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 import datetime
 import mysql.connector
+# Importando a pasta o arquivo e a classe
+from data.conexao import Conexao
+from model.control_mensagem import Mensagem
 app = Flask(__name__)
 
 @app.route("/")
@@ -11,33 +14,11 @@ def pagina_principal():
 def cadastrarComentarios():
     usuario = request.form.get("usuario")
     mensagem = request.form.get("mensagem")
-    data_hora = datetime.datetime.today()
+
+    # Cadastrando a mensagem usando a Classe Mensagem
+    Mensagem.cadastrar_mensagem(usuario, mensagem)
     
-    conexao = mysql.connector.connect(host = "localhost",
-                            port = 3306,
-                            user = "root",
-                            password = "root",
-                            database = "dbComentarios")
-    
-    cursor = conexao.cursor()
-
-    # Criando o sql que será executado
-    sql = """INSERT INTO tbcomentarios
-            (nome, data_hora, comentario)
-            VALUES
-                (%s,%s,%s)"""
-    valores=(usuario, data_hora, mensagem)
-
-    # Executando o comando sql
-    cursor.execute(sql, valores)
-
-    # Confirmo a alteração
-    conexao.commit()
-
-    # Fecho a conexao com o banco
-    cursor.close()
-    conexao.close() 
-
+    # Redireciona para o index
     return render_template("pagPrincipal.html")
 
 # Cadastrando as coisas no banco de dados
