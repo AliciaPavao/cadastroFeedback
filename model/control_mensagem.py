@@ -11,7 +11,7 @@ class Mensagem:
         cursor = conexao.cursor()
 
         # Criando o sql que será executado
-        sql = """INSERT INTO tbcomentarios
+        sql = """INSERT INTO tb_comentarios
                 (nome, data_hora, comentario)
                 VALUES
                     (%s,%s,%s)"""
@@ -35,10 +35,12 @@ class Mensagem:
         cursor = conexao.cursor(dictionary = True)
 
         # Criando o SQL que será executado
-        sql = """select nome AS usuario, 
-                        comentario AS mensagem,
-                        data_hora
-                        from tbcomentarios"""
+        sql = """select nome, 
+                        comentario,
+                        data_hora,
+                        cod_comentario,
+                        curtidas
+                        from tb_comentarios"""
         
         # Executando o comando sql
         cursor.execute(sql)
@@ -51,3 +53,44 @@ class Mensagem:
 
         return resultado
     
+    def deletar_mensagem(codigo):
+      
+    
+        #variavel - conexao arquivo
+        conexao = Conexao.criar_conexao()
+        
+        cursor = conexao.cursor()
+
+        # Criando o sql que será executado
+        sql = """DELETE FROM tb_comentarios WHERE cod_comentario = %s"""
+        valores = (codigo,)
+
+        # Executando o comando sql
+        cursor.execute(sql, valores)
+
+        # Confirmo a alteração
+        conexao.commit()
+
+        # Fecho a conexao com o banco
+        cursor.close()
+        conexao.close()  
+
+    def aumentar_likes(codigo):
+       #variavel - conexao arquivo
+        conexao = Conexao.criar_conexao()
+        
+        cursor = conexao.cursor()
+
+        # Criando o sql que será executado
+        sql = """UPDATE tb_comentarios SET curtidas = curtidas + 1 WHERE cod_comentario = %s"""
+        valores = (codigo,)
+
+        # Executando o comando sql
+        cursor.execute(sql, valores)
+
+        # Confirmo a alteração
+        conexao.commit()
+
+        # Fecho a conexao com o banco
+        cursor.close()
+        conexao.close() 

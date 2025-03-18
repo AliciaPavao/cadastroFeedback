@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import datetime
 import mysql.connector
 # Importando a pasta o arquivo e a classe
@@ -12,7 +12,7 @@ def pagina_principal():
     mensagens = Mensagem.recuperar_mensagens()
 
     # Enviar as mensagens para o template
-    return render_template("pagPrincipal.html", mensagem = mensagens)
+    return render_template("pagPrincipal.html", mensagens = mensagens)
 
 @app.route("/post/mensagem", methods=["POST"])
 def cadastrarComentarios():
@@ -25,6 +25,14 @@ def cadastrarComentarios():
     # Redireciona para o index
     return render_template("pagPrincipal.html")
 
-# Cadastrando as coisas no banco de dados
+@app.route("/delete/mensagem/<codigo>")
+def delete_mensagem(codigo):
+    Mensagem.deletar_mensagem(codigo)
+    return redirect("/")
+
+@app.route("/put/curtidas/<codigo>")
+def aumentar_likes(codigo):
+    Mensagem.aumentar_likes(codigo)
+    return redirect("/")
 
 app.run(debug = True)

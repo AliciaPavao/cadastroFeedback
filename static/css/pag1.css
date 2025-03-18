@@ -67,20 +67,36 @@ input[type="text"] {
     outline-color: deeppink; 
 }
 
-/* Estilo para o botão */
-button {
+/* Estilo para os botões */
+button:hover {
+    background-color: rgb(249, 145, 200);
+}
+
+.enviar {
     background-color: deeppink;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
 }
 
-button:hover {
-    background-color: rgb(249, 145, 200);
+.btn-coment{
+    background-color: deeppink;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 /* Estilo do quadrado de comentários */
@@ -96,6 +112,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     color: deeppink;
+    gap: 10px;
 }
 
 .comentario {
@@ -114,5 +131,17 @@ button:hover {
 .comentarios-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    width: 100%;
+    height: 300px;
+    gap: 7px;
+    border: 2px solid darkturquoise;
+    border-radius: 5px;
+    word-wrap: break-word;
+    color: #333;
+    padding: 5px;
+
+}
+
+.titulo{
+    color: deeppink;
 }
