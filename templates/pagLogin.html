@@ -17,16 +17,27 @@
             <form action="/post/login" method="POST" class="formulario-login">
                 <label class="txt-user txt">
                     Usuário
-                    <input type="text" name="usuario" id="usuario">
                 </label>
+                <input type="text" name="usuario" id="usuario">
 
                 <label class="txt-senha txt">
                     Senha
-                    <input type="password" name="senha" id="senha">
                 </label>
-
-                <button type="submit" class="entrar">ENTRAR</button>
+                <input type="password" name="senha" id="senha">
+                <div class="login-container-buttons">
+                    <button type="submit" class="entrar">Entrar</button>
+                    <button class="cadastrar">
+                        <a href="/">Cadastrar</a>
+                    </button>
+                </div>
+                
             </form>
+
+            <!-- Mensagem para cadastro -->
+            <p class="mensagem-cadastro">Não tem cadastro? <a href="/">Cadastre-se!</a></p>
+
+            <!-- Botão para cadastrar -->
+            
         </div>
     </main>
 </body>

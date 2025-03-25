@@ -29,7 +29,7 @@ body {
 
 .cabecalho-login h1 {
     font-size: 36px;
-    color: darkviolet; /* Cor roxa para o título */
+    color:orangered; /* Cor roxa para o título */
 }
 
 /* Estilo do formulário */
@@ -48,7 +48,7 @@ body {
 .txt-user, .txt-senha {
     margin: 10px;
     font-size: 14px;
-    color: darkviolet; /* Cor roxa para os labels */
+    color: orangered; /* Cor roxa para os labels */
 }
 
 /* Estilo para os inputs */
@@ -59,16 +59,16 @@ input[type="text"], input[type="password"] {
     border: 1px solid darkturquoise; /* Borda amarela */
     border-radius: 4px;
     font-size: 16px;
-    outline-color: darkviolet; /* Outline roxo */
+    outline-color: orangered; /* Outline roxo */
 }
 
 /* Estilo para os botões */
 button:hover {
-    background-color: rgb(181, 136, 201); /* Tom claro de roxo para hover */
+    background-color: rgb(252, 142, 102); /* Tom claro de roxo para hover */
 }
 
 .entrar {
-    background-color: darkviolet; /* Cor roxa para o botão */
+    background-color: orangered; /* Cor roxa para o botão */
     color: white;
     border: none;
     padding: 12px 20px;
@@ -80,38 +80,16 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Estilo para o botão "Cadastrar" */
-.cadastrar {
-    background-color: darkviolet; /* Cor roxa para o botão de cadastrar */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    width: 140px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 10px; /* Distância menor entre os botões */
-}
-
-.cadastrar a{
-    text-decoration: none;
-    color: white;
-}
-.login-container-buttons{
-    display: flex;/* Estilo da mensagem de cadastro */
-    gap: 20px;
-}
-
+/* Estilo para a mensagem de cadastro */
 .mensagem-cadastro {
-    color: darkviolet; /* Cor roxa para a mensagem */
+    color: orangered; /* Cor roxa para a mensagem */
     font-size: 16px;
     margin-top: 10px;
 }
 
 /* Estilo do link dentro da mensagem */
 .mensagem-cadastro a {
-    color: darkviolet;
+    color: orangered;
     text-decoration: none;
     font-weight: 700;
 }
@@ -120,7 +98,13 @@ button:hover {
     text-decoration: underline;
 }
 
-.formulario-login{
+.formulario-login {
     display: flex;
     flex-direction: column;
+}
+
+.login-container-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

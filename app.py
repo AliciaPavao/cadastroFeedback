@@ -7,6 +7,10 @@ from model.control_mensagem import Mensagem
 app = Flask(__name__)
 
 @app.route("/")
+def pagina_pagCadastro():
+    return render_template(("pagCadastro.html"))
+
+@app.route("/login")
 def pagina_login():
     return render_template(("pagLogin.html"))
 
