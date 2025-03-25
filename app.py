@@ -23,7 +23,7 @@ def cadastrarComentarios():
     Mensagem.cadastrar_mensagem(usuario, mensagem)
     
     # Redireciona para o index
-    return render_template("pagPrincipal.html")
+    return redirect("/")
 
 @app.route("/delete/mensagem/<codigo>")
 def delete_mensagem(codigo):
@@ -33,6 +33,11 @@ def delete_mensagem(codigo):
 @app.route("/put/curtidas/<codigo>")
 def aumentar_likes(codigo):
     Mensagem.aumentar_likes(codigo)
+    return redirect("/")
+
+@app.route("/remove/curtidas/<codigo>")
+def diminuir_likes(codigo):
+    Mensagem.diminuir_likes(codigo)
     return redirect("/")
 
 app.run(debug = True)

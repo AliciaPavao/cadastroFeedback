@@ -94,3 +94,23 @@ class Mensagem:
         # Fecho a conexao com o banco
         cursor.close()
         conexao.close() 
+
+    def diminuir_likes(codigo):
+       #variavel - conexao arquivo
+        conexao = Conexao.criar_conexao()
+        
+        cursor = conexao.cursor()
+
+        # Criando o sql que será executado
+        sql = """UPDATE tb_comentarios SET curtidas = curtidas - 1 WHERE cod_comentario = %s"""
+        valores = (codigo,)
+
+        # Executando o comando sql
+        cursor.execute(sql, valores)
+
+        # Confirmo a alteração
+        conexao.commit()
+
+        # Fecho a conexao com o banco
+        cursor.close()
+        conexao.close() 

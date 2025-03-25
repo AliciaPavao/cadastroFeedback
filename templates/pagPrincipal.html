@@ -35,9 +35,9 @@
                 <div class="comentarios-list">
                     <strong class="titulo">User:</strong> {{mensagem.nome}} ({{mensagem.data_hora}})
                     <p><strong class="titulo">Comentario:</strong> {{mensagem.comentario}}</p>
-                    <button class="btn-coment"><a href="/delete/mensagem/{{mensagem.cod_comentario}}">Excluir</a </button>
+                    <button class="btn-coment"><a href="/delete/mensagem/{{mensagem.cod_comentario}}">Excluir</a> </button>
                     <button class="btn-coment"><a href="/put/curtidas/{{mensagem.cod_comentario}}">Like</a>: {{mensagem.curtidas}} </button>
-                    <button class="btn-coment"><a href="">Deslike</a>: </button>
+                    <button class="btn-coment"><a href="/remove/curtidas/{{mensagem.cod_comentario}}">Deslike</a></button>
                 </div>
                 {% endfor %}
             </div>
