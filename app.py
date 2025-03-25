@@ -7,6 +7,10 @@ from model.control_mensagem import Mensagem
 app = Flask(__name__)
 
 @app.route("/")
+def pagina_login():
+    return render_template(("pagLogin.html"))
+
+@app.route("/comentario")
 def pagina_principal():
     # Recuperar as mensagens
     mensagens = Mensagem.recuperar_mensagens()
@@ -23,21 +27,23 @@ def cadastrarComentarios():
     Mensagem.cadastrar_mensagem(usuario, mensagem)
     
     # Redireciona para o index
-    return redirect("/")
+    return redirect("/comentario")
 
 @app.route("/delete/mensagem/<codigo>")
 def delete_mensagem(codigo):
     Mensagem.deletar_mensagem(codigo)
-    return redirect("/")
+    return redirect("/comentario")
 
 @app.route("/put/curtidas/<codigo>")
 def aumentar_likes(codigo):
     Mensagem.aumentar_likes(codigo)
-    return redirect("/")
+    return redirect("/comentario")
 
 @app.route("/remove/curtidas/<codigo>")
 def diminuir_likes(codigo):
     Mensagem.diminuir_likes(codigo)
-    return redirect("/")
+    return redirect("/comentario")
+
+
 
 app.run(debug = True)

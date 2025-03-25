@@ -1,0 +1,85 @@
+/* Resetando margens e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: darkturquoise; /* Cor amarela como base */
+    color: #333;
+}
+
+/* Estilo para o main */
+.corpo-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Cabeçalho */
+.cabecalho-login {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cabecalho-login h1 {
+    font-size: 36px;
+    color:darkviolet /* Cor roxa para o título */
+}
+
+/* Estilo do formulário */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-login {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(87, 0, 128, 0.4); /* Sombra roxa */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos labels */
+.txt-user, .txt-senha {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: darkviolet; /* Cor roxa para os labels */
+}
+
+/* Estilo para os inputs */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid darkturquoise; /* Borda amarela */
+    border-radius: 4px;
+    font-size: 16px;
+    outline-color: darkviolet; /* Outline roxo */
+}
+
+/* Estilo para os botões */
+button:hover {
+    background-color: rgb(181, 136, 201); /* Tom claro de roxo para hover */
+}
+
+.entrar {
+    background-color: darkviolet; /* Cor roxa para o botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}

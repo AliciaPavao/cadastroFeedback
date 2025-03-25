@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/pag2.css')}}">
+    <title>Login</title>
+</head>
+
+<body>
+    <main class="corpo-login">
+        <header class="cabecalho-login">
+            <h1>LOGIN</h1>
+        </header>
+
+        <div class="login-container">
+            <form action="/post/login" method="POST" class="formulario-login">
+                <label class="txt-user txt">
+                    Usuário
+                    <input type="text" name="usuario" id="usuario">
+                </label>
+
+                <label class="txt-senha txt">
+                    Senha
+                    <input type="password" name="senha" id="senha">
+                </label>
+
+                <button type="submit" class="entrar">ENTRAR</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
