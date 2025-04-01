@@ -36,3 +36,11 @@ class Usuario:
         SQL = """SELECT * FROM tb_usuarios
         WHERE login = %s
         AND BINARY senha = %s ;"""
+
+        valores = (usuario, senha)
+
+        cursor.execute(sql, valores)
+
+        resultado = cursor.fetchone
+
+    
