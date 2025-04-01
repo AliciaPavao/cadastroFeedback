@@ -3,7 +3,9 @@ import datetime
 import mysql.connector
 # Importando a pasta o arquivo e a classe
 from data.conexao import Conexao
-from model.control_mensagem import Mensagem
+from model.controler_mensagem import Mensagem
+from model.controler_usuario import Usuario
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -48,6 +50,17 @@ def diminuir_likes(codigo):
     Mensagem.diminuir_likes(codigo)
     return redirect("/comentario")
 
+@app.route("/post/cadastro", methods=["POST"])
+def cadastrarUsuario():
+    
+    usuario = request.form.get("usuario")
+    nome = request.form.get("nome")
+    senha = request.form.get("senha")
 
+    # Cadastrando a mensagem usando a Classe Mensagem
+    Usuario.cadastrar_usuario(usuario, nome, senha)
+    
+    # Redireciona para o index
+    return redirect("/login")
 
 app.run(debug = True)
