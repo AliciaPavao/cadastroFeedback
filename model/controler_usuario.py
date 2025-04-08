@@ -1,6 +1,8 @@
 import datetime
+
 from data.conexao import Conexao
 from hashlib import sha256
+from flask import session
 
 class Usuario:
     def cadastrar_usuario (usuario, nome, senha):
@@ -31,16 +33,28 @@ class Usuario:
 
         conexao = Conexao.criar_conexao()
 
-        cursor = conexao.cursor()
+        cursor = conexao.cursor(dictionary = True)
 
-        SQL = """SELECT * FROM tb_usuarios
+        SQL = """SELECT login, nome FROM tb_usuarios
         WHERE login = %s
         AND BINARY senha = %s ;"""
 
         valores = (usuario, senha)
 
-        cursor.execute(sql, valores)
+        cursor.execute(SQL, valores)
 
-        resultado = cursor.fetchone
+        resultado = cursor.fetchone()
+        
+        cursor.close() # Põe o cursor em cima do conexao 
+        conexao.close()
+        
+        if resultado:
+            session['usuario'] = resultado['login']
+            session['nome_usuario'] = resultado['nome']
+            return True
+        else:
+            return False
+        
+      
 
     

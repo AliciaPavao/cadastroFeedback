@@ -5,24 +5,45 @@ import mysql.connector
 from data.conexao import Conexao
 from model.controler_mensagem import Mensagem
 from model.controler_usuario import Usuario
+from flask import session
 
 app = Flask(__name__)
 
-@app.route("/")
+app.secret_key = "Godofredolindo"
+
+@app.route("/cadastro")
 def pagina_pagCadastro():
     return render_template(("pagCadastro.html"))
 
-@app.route("/login")
+@app.route("/")
 def pagina_login():
     return render_template(("pagLogin.html"))
 
+@app.route("/post/login", methods=["POST"])
+def post_logar():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+
+    #class  #def
+    esta_logado = Usuario.logar(usuario, senha)
+
+    if esta_logado:
+        return redirect("/comentario")
+    else: 
+        return redirect("/")
+
 @app.route("/comentario")
 def pagina_principal():
-    # Recuperar as mensagens
-    mensagens = Mensagem.recuperar_mensagens()
 
-    # Enviar as mensagens para o template
-    return render_template("pagPrincipal.html", mensagens = mensagens)
+    if 'usuario' in session:
+
+        # Recuperar as mensagens
+        mensagens = Mensagem.recuperar_mensagens()
+
+        # Enviar as mensagens para o template
+        return render_template("pagPrincipal.html", mensagens = mensagens)
+    else:
+        return redirect("/")
 
 @app.route("/post/mensagem", methods=["POST"])
 def cadastrarComentarios():
@@ -61,6 +82,6 @@ def cadastrarUsuario():
     Usuario.cadastrar_usuario(usuario, nome, senha)
     
     # Redireciona para o index
-    return redirect("/login")
+    return redirect("/")
 
 app.run(debug = True)
