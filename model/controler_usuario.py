@@ -54,7 +54,9 @@ class Usuario:
             return True
         else:
             return False
-        
+
+    def logoff():
+        session.clear() 
       
 
     
