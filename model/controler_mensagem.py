@@ -1,5 +1,6 @@
 import datetime
 from data.conexao import Conexao
+from flask import session
 
 class Mensagem:
     def cadastrar_mensagem(usuario, mensagem):
@@ -114,3 +115,26 @@ class Mensagem:
         # Fecho a conexao com o banco
         cursor.close()
         conexao.close() 
+
+    def ultima_mensagem(usuario):
+
+        
+        conexao = Conexao.criar_conexao()
+
+        cursor = conexao.cursor(dictionary = True)
+
+        SQL = """SELECT nome, cod_comentario, comentario FROM tb_comentarios
+        WHERE nome = %s;"""
+
+        valores = (usuario)
+
+        cursor.execute(SQL, valores)
+
+        resultado = cursor.fetchall()
+        resultado = resultado[0]
+        
+        cursor.close() # Põe o cursor em cima do conexao 
+        conexao.close()
+
+        return resultado
+        

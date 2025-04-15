@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import datetime
 import mysql.connector
 # Importando a pasta o arquivo e a classe
@@ -83,6 +83,16 @@ def cadastrarUsuario():
     
     # Redireciona para o index
     return redirect("/")
+
+@app.route("/api/get/mensagens") 
+def api_get_mensagens():
+    mensagens = Mensagem.recuperar_mensagens()
+    return jsonify(mensagens)
+
+@app.route("/api/get/ultimamensagem/<nome>")
+def api_get_ultima_mensagem(nome):
+    mensagem = Mensagem.ultima_mensagem(nome)
+    return jsonify(mensagem)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
