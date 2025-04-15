@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/pag1.css')}}">
+    <title>Página Principal</title>
+</head>
+
+<body>
+    <!-- Novo Header fixo no topo -->
+    <header class="top-header">
+
+        <h1 class="titulo-header">FEEDBACK</h1>
+        <div class="auth-links">
+            <button class="btn-header"><a href="/login" class="login">Login</a></button>
+            <button class="btn-header"><a href="/logout" class="logoff">Logoff</a></button>
+        </div>
+    </header>
+
+    <main class="corpo">
+        <!-- Título centralizado em outra div -->
+        <div class="cabecalho">
+            <h1>FEEDBACK</h1>
+            <span class="bemvindo">Seja bem-vindo(a) {{session['nome_usuario']}}</span>
+        </div>
+
+        <div class="formulario-container">
+            <form action="/post/mensagem" method="POST" class="formulario01">
+                <label class="txt-user txt">
+                    Usuario
+                    <input type="text" name="usuario" id="usuario">
+                </label>
+
+                <label class="txt-coment txt">
+                    Comentarios
+                    <input type="text" name="mensagem" id="mensagem">
+                </label>
+
+                <button type="submit" class="enviar">ENVIAR</button>
+            </form>
+
+            <div class="comentarios">
+                <h2>Comentários Enviados</h2>
+
+                {% for mensagem in mensagens %}
+                <div class="comentarios-list">
+                    <strong class="titulo">User:</strong> {{ mensagem.nome }} ({{ mensagem.data_hora }})
+                    <p><strong class="titulo">Comentario:</strong> {{ mensagem.comentario }}</p>
+                    <button class="btn-coment"><a href="/delete/mensagem/{{ mensagem.cod_comentario }}">Excluir</a></button>
+                    <button class="btn-coment"><a href="/put/curtidas/{{ mensagem.cod_comentario }}">Like</a>: {{ mensagem.curtidas }}</button>
+                    <button class="btn-coment"><a href="/remove/curtidas/{{ mensagem.cod_comentario }}">Deslike</a></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

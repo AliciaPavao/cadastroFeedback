@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/pag3.css')}}">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <main class="corpo-login">
+        <header class="cabecalho-login">
+            <h1>CADASTRO</h1>
+        </header>
+
+        <div class="login-container">
+            <form action="/post/cadastro" method="POST" class="formulario-login">
+                <label class="txt-user txt">
+                    Nome
+                </label>
+                <input type="text" name="nome" id="nome" required>
+
+                <label class="txt-user txt">
+                    Usuário
+                </label>
+                <input type="text" name="usuario" id="usuario" required>
+
+                <label class="txt-senha txt">
+                    Senha
+                </label>
+                <input type="password" name="senha" id="senha" required>
+
+                <label class="txt-senha txt">
+                    Confirmação da Senha
+                </label>
+                <input type="password" name="confirma_senha" id="confirma_senha" required>
+
+                <div class="login-container-buttons">
+                    <button type="submit" class="entrar">Cadastrar</button>
+                </div>
+            </form>
+
+            <!-- Mensagem para voltar ao login -->
+            <p class="mensagem-cadastro">Já tem cadastro? <a href="/">Faça login!</a></p>
+
+        </div>
+    </main>
+</body>
+</html>
+
+<img src="" alt="">

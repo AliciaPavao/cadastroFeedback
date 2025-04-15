@@ -1,0 +1,222 @@
+/* Resetando margens e preenchimento padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: darkturquoise;
+    color: #333;
+}
+
+/* Estilo para o main */
+.corpo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 60px; /* Ajuste para dar espaço para o header fixo */
+}
+
+/* Novo Header fixo no topo */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: deeppink;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Garante que o header fique sobre os outros conteúdos */
+    color: white;
+    font-size: 18px;
+}
+
+.titulo-header {
+    margin-left: 10px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.btn-header {
+    background-color: darkturquoise;
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo do cabeçalho do feedback */
+.cabecalho {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+    font-size: 36px;
+    color: deeppink;
+}
+
+/* Estilo do formulário */
+.formulario-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.formulario01 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 171, 219, 0.716);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos labels */
+.txt-user, .txt-coment {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: deeppink;
+}
+
+/* Estilo para os inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid darkturquoise;
+    border-radius: 4px;
+    font-size: 16px;
+    outline-color: deeppink; 
+}
+
+/* Estilo para os botões */
+button:hover {
+    background-color: rgb(249, 145, 200);
+}
+
+.enviar {
+    background-color: deeppink;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-coment {
+    background-color: deeppink;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilo do quadrado de comentários */
+.comentarios {
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    color: deeppink;
+    gap: 10px;
+}
+
+.comentario {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.comentario p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.comentarios-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    gap: 7px;
+    border: 2px solid darkturquoise;
+    border-radius: 5px;
+    word-wrap: break-word;
+    color: #333;
+    padding: 5px;
+}
+
+.titulo {
+    color: deeppink;
+}
+
+/* Novo estilo para o botão de login */
+.login-btn {
+    background-color: #ff1493; /* Um tom de rosa mais vibrante */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-btn a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.login-btn:hover {
+    background-color: rgb(249, 145, 200);
+}
+
+.bemvindo {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(252, 252, 252);
+}
